@@ -1,0 +1,13 @@
+{
+  "name": "heroku-node",
+  "description": "News Scraper app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "ejs": "~1.0.0",
+    "express": "^4.9.8"
+  }
+}

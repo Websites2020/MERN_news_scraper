@@ -1,0 +1,81 @@
+body {
+    font-family: "Courier", Times, serif;
+}
+h1 {
+    color: black;
+    text-align: center;
+    margin: 21.440px 0 10px 0;
+    font-size: 3em;
+}
+
+h2 {
+    text-align: center;
+    color: gray;
+    margin: 10px 0 19.920px 0
+}
+
+img {
+    float: left;
+    padding: 10px;
+    clear: both;
+    height: 100px;
+    width: 200px;
+}
+
+.news-excerpt {
+    padding: 0 0 50px 0;
+    border-bottom: 1px solid black;
+    font-size: 1.1em;
+}
+
+div {
+    margin: 10px 20px;
+}
+
+p {
+    color: darkorange;
+}
+
+.about {
+    text-align:center;
+    color: black;
+}
+
+a {
+    color: blue;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+.box{
+    display: none;
+    width: 100%;
+}
+
+a:hover + .box,.box:hover{
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+
+#loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid gray;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    margin: auto;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
