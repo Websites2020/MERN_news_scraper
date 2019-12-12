@@ -36,7 +36,7 @@ p {
     color: darkorange;
 }
 
-.about {
+#about {
     text-align:center;
     color: black;
 }
@@ -67,7 +67,24 @@ a:hover + .box,.box:hover{
     -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 2s linear infinite;
     margin: auto;
-  }
+}
+
+.like_button_container {
+    display: inline;
+}
+
+/* #sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    padding: 0;
+    margin: 0;
+}
+
+#content {
+    margin-top: 20%;
+  } */
   
   /* Safari */
   @-webkit-keyframes spin {

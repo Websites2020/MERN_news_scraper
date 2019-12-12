@@ -5,7 +5,7 @@ $(window).on('load', function() {
     $.get("/scrape", function(response) {
       
         var info = response;
-        // console.log(info)
+        console.log(info)
 
         var loaded = $("#demo").load("/scrape .news-block h3, .news-block .wp-post-image, .news-block .news-excerpt");
         console.log(loaded)
@@ -15,8 +15,8 @@ $(window).on('load', function() {
           node.setAttribute("class", "like_button_container");
           console.log(node)
           $(loaded[0]).children('h3').append(node)
-
-        }, 2000)
+          console.log("button added?")
+        }, 2500)
         var y = document.getElementById("info");
         y.style.display = "none";
         var x = document.getElementById("loader");
