@@ -19,7 +19,7 @@ var url = "mongodb://localhost:27017";
 var MongoClient = require('mongodb').MongoClient; 
  
 // Make a connection to MongoDB Service
-MongoClient.connect(url, function(err, db) { 
+MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
   if (err) throw err; 
   console.log("Connected to MongoDB!");
   var dbo = db.db("mydb");
@@ -28,6 +28,10 @@ MongoClient.connect(url, function(err, db) {
 
 app.get('/',function(req,res) {
     res.sendFile('index.html', { root: __dirname });
+  });
+
+app.get('/liked',function(req,res) {
+    res.sendFile('/public/liked.html', { root: __dirname });
   });
 
 app.get("/scrape", function(req, res) {
@@ -44,7 +48,7 @@ app.get("/scrape", function(req, res) {
 
 app.post('/update', function(req, res) {
 
-  MongoClient.connect(url, function(err, db) {
+  MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
       if (err) throw err;
       console.log(req.body)
       var dbo = db.db("mydb");
@@ -64,7 +68,7 @@ app.post('/update', function(req, res) {
 
 app.post('/remove', function(req, res) {
 
-  MongoClient.connect(url, function(err, db) {
+  MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
       if (err) throw err;
       console.log(req.body)
       var dbo = db.db("mydb");
@@ -83,7 +87,7 @@ app.post('/remove', function(req, res) {
 })
 
 app.get('/find', function(req, res) {
-  MongoClient.connect(url, function(err, db) { 
+  MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) { 
     var dbo = db.db("mydb");
     dbo.collection("saved").find({}).toArray(function(err, result) {
       if (err) throw err;
@@ -94,7 +98,7 @@ app.get('/find', function(req, res) {
 })
 
 app.get('/deleteCollection', function(req, res) {
-  MongoClient.connect(url, function(err, db) {
+  MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
     if (err) throw err;
     var dbo = db.db("mydb");
     dbo.collection("saved").drop(function(err, delOK) {

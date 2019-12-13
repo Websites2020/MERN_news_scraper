@@ -3,10 +3,15 @@ class Content extends React.Component {
       super(props);
       this.myRef = React.createRef();
     }
+
+    
     render() {
       return <div>
                 <div id="sticky">
                     <div id="title">
+                        <div style={{textAlign: 'right'}}>
+                            <a className="btn btn-secondary" href="/liked">Liked Articles</a>
+                        </div>
                         <h1>MERN News Scraper</h1>
                         <h2>From NewsInLevels.com</h2>
                     </div>

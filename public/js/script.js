@@ -11,16 +11,17 @@ $(window).on('load', function() {
         console.log(loaded)
         setTimeout(function(){
 
+          var y = document.getElementById("info");
+          y.style.display = "none";
+          var x = document.getElementById("loader");
+          x.style.display = "none";
+
           var node = document.createElement("div");       // Create a text node
           node.setAttribute("class", "like_button_container");
           console.log(node)
           $(loaded[0]).children('h3').append(node)
           console.log("button added?")
-        }, 2500)
-        var y = document.getElementById("info");
-        y.style.display = "none";
-        var x = document.getElementById("loader");
-        x.style.display = "none";
+        }, 1500)
     });
 
     // $("#demo").on("mouseover", function() {
