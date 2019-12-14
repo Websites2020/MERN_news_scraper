@@ -30,8 +30,8 @@ app.get('/',function(req,res) {
     res.sendFile('index.html', { root: __dirname });
   });
 
-app.get('/liked',function(req,res) {
-    res.sendFile('/public/liked.html', { root: __dirname });
+app.get('/saved',function(req,res) {
+    res.sendFile('/public/saved.html', { root: __dirname });
   });
 
 app.get("/scrape", function(req, res) {
@@ -81,6 +81,7 @@ app.post('/remove', function(req, res) {
       dbo.collection("saved").deleteOne(query, function(err, obj) {
         if (err) throw err;
         console.log("1 document deleted");
+        res.json("1 document deleted");
         db.close();
       });
   });

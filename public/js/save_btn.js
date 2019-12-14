@@ -2,21 +2,21 @@
 
 const e = React.createElement;
 
-class LikeButton extends React.Component {
+class SaveButton extends React.Component {
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
-    this.state = { check: true, text: "Like", color: "btn btn-primary" };
+    this.state = { check: true, text: "Save", color: "btn btn-primary"};
     // this.updateCheck = this.updateCheck.bind(this)
   }
 
   render() {
     if (this.state.check) {
-      this.state.text = "Like"
+      this.state.text = "Save"
       this.state.color = "btn btn-primary"
       markSaved(this)
     } else if (!this.state.check) {
-      this.state.text = "Liked"
+      this.state.text = "Saved"
       this.state.color = "btn btn-danger"
     }
 
@@ -33,9 +33,8 @@ class LikeButton extends React.Component {
     .then(r =>  r.json().then(data => ({status: r.status, body: data})))
     .then(function(obj) {
       console.log(obj.body)
-      console.log(Object.keys(obj.body).length);
-    
-        for (var i=0; i<=Object.keys(obj).length; i++) {
+    console.log(Object.keys(obj.body).length)
+        for (var i=0; i<=Object.keys(obj.body).length; i++) {
             console.log("Saved: " + obj.body[i].article.link)
             console.log(ReactDOM.findDOMNode(btn).parentNode.parentNode.children[0].href)
             if (ReactDOM.findDOMNode(btn).parentNode.parentNode.children[0].href == obj.body[i].article.link) {
@@ -43,7 +42,6 @@ class LikeButton extends React.Component {
                 check: false
               }));
               console.log(btn)
-              i++
             }
           }
         })
@@ -57,9 +55,6 @@ class LikeButton extends React.Component {
     }
 
     function updateDB(btn, info) {
-      console.log(info[0])
-      console.log(info[0].href)
-      console.log(info[0].innerText)
       if (btn.state.check) {
         console.log("ADDED")
         fetch('/update', {
@@ -70,9 +65,6 @@ class LikeButton extends React.Component {
               title: info[0].innerText,
           })
       })
-      .then((res) => {
-          console.log(res)
-      })
       } else if (!btn.state.check) {
         console.log("DELETED")
         fetch('/remove', {
@@ -82,9 +74,6 @@ class LikeButton extends React.Component {
               href: info[0].href,
               title: info[0].innerText,
           })
-      })
-      .then((res) => {
-          console.log(res)
       })
       }
       
@@ -101,7 +90,7 @@ class LikeButton extends React.Component {
   }
 }
 
-const domContainer = document.querySelectorAll('.like_button_container').forEach(domContainer => {
-ReactDOM.render(e(LikeButton), domContainer)
+const domContainer = document.querySelectorAll('.save_button_container').forEach(domContainer => {
+ReactDOM.render(e(SaveButton), domContainer)
 })
 

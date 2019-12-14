@@ -32,7 +32,7 @@ img {
     font-size: 1.1em;
 }
 
-div {
+#demo {
     margin: 10px 20px;
 }
 
@@ -73,8 +73,12 @@ a:hover + .box,.box:hover{
     margin: auto;
 }
 
-.like_button_container {
+.save_button_container {
     display: inline;
+}
+
+.pageLink {
+    font-size: .5em;
 }
 
 /* #sticky {
